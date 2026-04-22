@@ -1,0 +1,267 @@
+/* ── Fonts ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Pyidaungsu&display=swap');
+
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+  --bg:        #0f0f1a;
+  --bg2:       #1a1a2e;
+  --bg3:       #16213e;
+  --accent:    #c9a84c;
+  --accent2:   #e8c97a;
+  --text:      #e8e6d9;
+  --text-muted:#9e9c8e;
+  --border:    #2e2e4a;
+  --benefic:   #2a4a3a;
+  --malefic:   #4a2a2a;
+  --radius:    10px;
+  --font-mm:   'Pyidaungsu', sans-serif;
+}
+
+/* ── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mm), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Shell ──────────────────────────────────────────────── */
+.app-shell {
+  display: flex; flex-direction: column;
+  min-height: 100dvh; max-width: 480px; margin: 0 auto;
+  background: var(--bg2);
+}
+.main-content { flex: 1; overflow-y: auto; padding: 16px 16px 80px; }
+
+/* ── Header ─────────────────────────────────────────────── */
+.app-header { background: var(--bg3); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-icon { font-size: 22px; }
+.brand-name { font-size: 17px; font-weight: 700; color: var(--accent); }
+.brand-sub  { font-size: 11px; color: var(--text-muted); }
+.lang-toggle {
+  display: flex; align-items: center; gap: 5px;
+  background: var(--border); border: none; border-radius: 20px;
+  color: var(--text); padding: 5px 12px; cursor: pointer; font-size: 13px;
+}
+.lang-toggle:hover { background: var(--accent); color: #000; }
+
+/* ── Bottom Nav ─────────────────────────────────────────── */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  display: flex; background: var(--bg3); border-top: 1px solid var(--border);
+}
+.bottom-nav a {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  padding: 10px 0; color: var(--text-muted); text-decoration: none; font-size: 11px; gap: 3px;
+}
+.bottom-nav a.active, .bottom-nav a:hover { color: var(--accent); }
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: #000; font-weight: 700;
+  border: none; border-radius: var(--radius); padding: 12px 24px;
+  cursor: pointer; font-size: 15px; font-family: inherit; transition: opacity .2s;
+}
+.btn-primary:hover { opacity: .85; }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+.btn-large { width: 100%; justify-content: center; padding: 15px; font-size: 17px; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent; color: var(--text-muted);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 10px 18px; cursor: pointer; font-family: inherit; font-size: 14px;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+.btn-print {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent; color: var(--accent);
+  border: 1px solid var(--accent); border-radius: 6px;
+  padding: 6px 14px; cursor: pointer; font-size: 13px; font-family: inherit;
+}
+
+/* ── Home Page ──────────────────────────────────────────── */
+.home-page { display: flex; flex-direction: column; gap: 32px; }
+.hero { text-align: center; padding: 32px 0 16px; }
+.hero-glyph { font-size: 28px; letter-spacing: 12px; color: var(--accent); margin-bottom: 16px; }
+.hero h1 { font-size: 22px; margin-bottom: 12px; }
+.hero p  { color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+.features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.feature-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.feature-icon { color: var(--accent); margin-bottom: 8px; }
+.feature-card h3 { font-size: 14px; margin-bottom: 4px; }
+.feature-card p  { font-size: 12px; color: var(--text-muted); }
+.home-footer { text-align: center; color: var(--text-muted); font-size: 12px; padding-bottom: 8px; }
+
+/* ── Form ────────────────────────────────────────────────── */
+.birth-form { display: flex; flex-direction: column; gap: 18px; }
+.form-title  { font-size: 20px; text-align: center; color: var(--accent); margin-bottom: 8px; }
+.field-group { display: flex; flex-direction: column; gap: 5px; }
+.field-group label { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 5px; }
+.field-group input {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text); padding: 11px 14px; font-size: 15px; font-family: inherit; width: 100%;
+}
+.field-group input:focus { outline: none; border-color: var(--accent); }
+.field-note { font-size: 11px; color: var(--text-muted); }
+.city-input-wrap { position: relative; }
+.city-input-wrap input { padding-right: 36px; }
+.city-input-wrap svg { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+.city-dropdown { list-style: none; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; margin-top: 4px; overflow: hidden; }
+.city-dropdown li { padding: 10px 14px; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+.city-dropdown li:hover { background: var(--border); }
+.city-no-results { font-size: 12px; color: var(--text-muted); padding: 4px 2px; }
+.city-selected { font-size: 12px; color: #6dbf6d; padding: 4px 2px; }
+.form-error { color: #e57373; font-size: 13px; text-align: center; }
+
+/* ── Chart Page ─────────────────────────────────────────── */
+.chart-page { display: flex; flex-direction: column; gap: 24px; }
+.page-title { font-size: 20px; color: var(--accent); margin-bottom: 4px; }
+.birth-summary { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+.chart-actions { display: flex; gap: 12px; flex-wrap: wrap; padding: 8px 0; }
+
+/* ── Chart Mode Tabs ─────────────────────────────────────── */
+.chart-mode-tabs { display: flex; gap: 0; margin-bottom: 8px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); width: fit-content; }
+.tab-btn { padding: 8px 18px; font-size: 13px; background: var(--bg3); color: var(--text-muted); border: none; cursor: pointer; transition: all 0.2s; }
+.tab-btn:hover { background: var(--bg2); color: var(--text); }
+.tab-btn.tab-active { background: var(--accent); color: #000; font-weight: 700; }
+.chart-mode-note { font-size: 11px; color: var(--text-muted); margin: 4px 0 10px; }
+
+/* ── Zata Chart Grid ─────────────────────────────────────── */
+.zata-chart-wrap { }
+.zata-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  grid-template-rows:    repeat(4, 1fr);
+  gap: 2px; aspect-ratio: 1/1;
+  background: var(--border); border: 2px solid var(--accent); border-radius: 4px; overflow: hidden;
+}
+.chart-cell {
+  background: var(--bg3); padding: 6px;
+  display: flex; flex-direction: column; gap: 3px; min-height: 72px;
+}
+.chart-center { background: var(--bg); display: flex; align-items: center; justify-content: center; }
+.zodiac-badge { font-size: 9px; color: var(--text-muted); text-align: center; line-height: 1.5; }
+.cusp-info { display: flex; flex-wrap: wrap; gap: 2px; }
+.cusp-tag { font-size: 9px; color: #88aaff; background: rgba(136,170,255,0.1); padding: 1px 3px; border-radius: 2px; }
+.planet-house-num { font-size: 8px; color: var(--text-muted); margin-left: 1px; }
+.lagna-cell { background: #1a2a1a; border: 1px solid var(--accent); }
+.cell-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.house-num { font-size: 10px; color: var(--text-muted); }
+.sign-num  { font-size: 10px; color: var(--text-muted); }
+.sign-name { font-size: 11px; color: var(--accent2); text-align: right; line-height: 1.2; }
+.lagna-tag { font-size: 9px; color: var(--accent); font-weight: 700; }
+.cell-planets { display: flex; flex-wrap: wrap; gap: 2px; }
+.planet-tag { font-size: 10px; display: flex; align-items: center; gap: 1px; white-space: nowrap; }
+.planet-abbr { font-size: 9px; color: var(--text-muted); }
+.planet-sun     { color: #f5c518; }
+.planet-moon    { color: #c8d8e8; }
+.planet-mars    { color: #e87070; }
+.planet-mercury { color: #78c878; }
+.planet-jupiter { color: #f0c060; }
+.planet-venus   { color: #f0a0c0; }
+.planet-saturn  { color: #a090c0; }
+.planet-rahu    { color: #808090; }
+.planet-ketu    { color: #c09060; }
+.lagna-info { text-align: center; font-size: 13px; margin-top: 8px; color: var(--text-muted); }
+.lagna-info strong { color: var(--accent); }
+
+/* ── Dasha ───────────────────────────────────────────────── */
+.dasha-section { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.section-label { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+.dasha-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.dasha-label { font-size: 12px; color: var(--text-muted); min-width: 80px; }
+.dasha-planet { font-weight: 700; color: var(--accent2); }
+.dasha-dates { font-size: 11px; color: var(--text-muted); margin-left: auto; }
+.dasha-bar-wrap { background: var(--border); border-radius: 4px; height: 6px; margin: 4px 0; }
+.dasha-bar { background: var(--accent); height: 6px; border-radius: 4px; transition: width .3s; }
+.dasha-remaining { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+.dasha-row.antar { padding-top: 10px; border-top: 1px solid var(--border); }
+.dasha-upcoming { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.dasha-next { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 12px; }
+.dasha-next .dasha-planet { font-size: 13px; display: block; }
+.dasha-next .dasha-dates { font-size: 10px; }
+
+/* ── Yogas ───────────────────────────────────────────────── */
+.yogas-section { }
+.no-yogas { font-size: 13px; color: var(--text-muted); }
+.yoga-cards { display: flex; flex-direction: column; gap: 8px; }
+.yoga-card { border-radius: 8px; padding: 12px 14px; }
+.yoga-benefic { background: var(--benefic); border-left: 3px solid #6dbf6d; }
+.yoga-malefic { background: var(--malefic); border-left: 3px solid #e57373; }
+.yoga-name { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
+.yoga-desc { font-size: 12px; color: var(--text-muted); }
+
+/* ── AI Reading ──────────────────────────────────────────── */
+.reading-section { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.reading-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.reading-loading { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 24px; color: var(--text-muted); }
+.reading-body { font-size: 14px; line-height: 1.8; color: var(--text); }
+
+/* ── Chat ────────────────────────────────────────────────── */
+.chat-page { height: calc(100dvh - 130px); display: flex; flex-direction: column; }
+.chat-wrap { display: flex; flex-direction: column; height: 100%; gap: 12px; }
+.chat-title { font-size: 18px; color: var(--accent); }
+.suggestions { display: flex; flex-wrap: wrap; gap: 8px; }
+.suggestion-chip {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 20px;
+  color: var(--text); padding: 6px 14px; cursor: pointer; font-size: 13px; font-family: inherit;
+}
+.suggestion-chip:hover { border-color: var(--accent); color: var(--accent); }
+.chat-messages { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 4px 0; }
+.chat-bubble { display: flex; }
+.chat-bubble.user { justify-content: flex-end; }
+.chat-bubble.assistant { justify-content: flex-start; }
+.bubble-inner {
+  max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.7;
+}
+.chat-bubble.user .bubble-inner { background: var(--accent); color: #000; border-radius: 12px 12px 2px 12px; }
+.chat-bubble.assistant .bubble-inner { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px 12px 12px 2px; }
+.chat-input-row { display: flex; gap: 8px; }
+.chat-input-row input {
+  flex: 1; background: var(--bg3); border: 1px solid var(--border); border-radius: 24px;
+  color: var(--text); padding: 11px 18px; font-size: 15px; font-family: inherit;
+}
+.chat-input-row input:focus { outline: none; border-color: var(--accent); }
+.btn-send {
+  background: var(--accent); border: none; border-radius: 50%; width: 42px; height: 42px;
+  color: #000; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.btn-send:disabled { opacity: .4; cursor: not-allowed; }
+
+/* ── Utilities ───────────────────────────────────────────── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 1s linear infinite; }
+
+/* ── Print ───────────────────────────────────────────────── */
+.print-header { display: none; }
+@media print {
+  .no-print, .bottom-nav, .app-header, .chart-actions { display: none !important; }
+  .print-header { display: block; text-align: center; margin-bottom: 16px; border-bottom: 1px solid #ccc; padding-bottom: 8px; }
+  .app-shell, .main-content { max-width: 100%; background: white; color: black; padding: 0; }
+  .zata-grid { border-color: black; }
+  .chart-cell, .zata-chart-wrap { background: white; border-color: #ccc; }
+  .reading-body { color: black; font-size: 13pt; }
+  .sign-name, .planet-tag, .lagna-info, .brand-name { color: black !important; }
+}
+
+/* ── Western Analysis ────────────────────────────────────── */
+.western-analysis { margin-top: 16px; }
+.analysis-tabs { display: flex; gap: 0; margin-bottom: 12px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.analysis-section { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+.aspect-list { display: flex; flex-direction: column; gap: 4px; }
+.aspect-row { display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: 4px; background: var(--bg2); font-size: 13px; }
+.aspect-symbol { font-size: 16px; width: 20px; text-align: center; }
+.aspect-planets { flex: 1; color: var(--text); }
+.aspect-name { color: var(--text-muted); font-size: 11px; min-width: 80px; }
+.aspect-orb { font-size: 11px; color: var(--text-muted); min-width: 32px; text-align: right; }
+.aspect-good { border-left: 3px solid #4caf50; }
+.aspect-bad  { border-left: 3px solid #e87070; }
+.aspect-var  { border-left: 3px solid #c9a84c; }
+.muted { color: var(--text-muted); font-size: 13px; }
